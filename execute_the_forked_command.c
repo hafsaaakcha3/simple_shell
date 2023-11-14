@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * exec_forked_cmd - Execute a command in a forked process
@@ -14,7 +14,7 @@
  *
  * Return: The exit status of the child process, or -1 on failure.
  */
-int exec_forked_cmd(char **args, char *input_str)
+int execute_the_forked_command(char **args, char *input)
 {
 	pid_t pid;
 	int status;
@@ -27,16 +27,17 @@ int exec_forked_cmd(char **args, char *input_str)
 	}
 	if (pid == 0)
 	{
-		if (exec_cmd(args, input_str) == -1)
+		if (execute_the_command(args, input) == -1)
 		{
-			perror(input_str);
-			free_args(args);
+			perror(input);
+			free_arguments(args);
+			free(input);
 			exit(EXIT_FAILURE);
 		}
 	}
 	if (wait(&status) == -1)
 		perror("wait");
 	if (WIFEXITED(status))
-		return WEXITSTATUS(status);
-	return -1;
+		return (WEXITSTATUS(status));
+	return (-1);
 }

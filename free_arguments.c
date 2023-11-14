@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * free_args - Free memory allocated for an array of arguments
@@ -9,7 +9,7 @@
  * It also sets the array elements to NULL to avoid double freeing in the
  * calling function.
  */
-void free_args(char **args)
+void free_arguments(char **args)
 {
 	int i;
 

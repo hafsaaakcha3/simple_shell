@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * does_cmd_exist - Check if a command exists in the PATH
@@ -11,11 +11,11 @@
  *
  * Return: 1 if the command exists and is executable, 0 otherwise.
  */
-int does_cmd_exist(char **args)
+int does_command_exist(char **args)
 {
 	char *path, *dir;
 	char path_search[4096];
-	char cmd_path[4096];
+	char command_path[4096];
 
 	if (args[0][0] == '/' || args[0][0] == '.')
 	{
@@ -33,13 +33,13 @@ int does_cmd_exist(char **args)
 		dir = strtok(path_search, ":");
 		while (dir)
 		{
-			snprintf(cmd_path, sizeof(cmd_path), "%s/%s", dir, args[0]);
-			if (access(cmd_path, X_OK) == 0)
+			snprintf(command_path, sizeof(command_path), "%s/%s", dir, args[0]);
+			if (access(command_path, X_OK) == 0)
 			{
-				return 1;
+				return (1);
 			}
 			dir = strtok(NULL, ":");
 		}
 	}
-	return 0;
+	return (0);
 }

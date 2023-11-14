@@ -1,9 +1,9 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * print_environment - Print environment variables
  */
-void print_environment(void)
+void printenv(void)
 {
 	char *env_copy;
 	char **env;

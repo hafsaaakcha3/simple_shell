@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * read_user_input - Read user input from stdin
@@ -13,7 +13,7 @@
  *
  * Return: The number of characters read, or -1 on error.
  */
-ssize_t read_user_input(char **input, size_t *buf_size)
+ssize_t read_the_input(char **input, size_t *buf_size)
 {
 	ssize_t rd;
 
@@ -21,7 +21,7 @@ ssize_t read_user_input(char **input, size_t *buf_size)
 	if (rd == -1)
 	{
 		if (!isatty(STDIN_FILENO))
-			return -1;
+			return (-1);
 		free(*input);
 		perror("getline()");
 		exit(EXIT_FAILURE);
@@ -30,6 +30,6 @@ ssize_t read_user_input(char **input, size_t *buf_size)
 	if ((*input)[rd - 1] == '\n')
 		(*input)[rd - 1] = '\0';
 
-	return rd;
+	return (rd);
 }
 

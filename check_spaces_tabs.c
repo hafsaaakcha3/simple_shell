@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * is_blank_chars - Check if a string contains only spaces and tabs
@@ -11,13 +11,13 @@
  *
  * Return: 1 if the string contains only spaces and tabs, 0 otherwise.
  */
-int is_blank_chars(char *str)
+int check_spaces_tabs(char *str)
 {
 	while (*str)
 	{
 		if (*str != ' ' && *str != '\t')
-			return 0;
+			return (0);
 		str++;
 	}
-	return 1;
+	return (1);
 }

@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * tokenize_input - Tokenize an input string into an array of arguments
@@ -11,7 +11,7 @@
  *
  * Return: An array of pointers to the tokenized arguments, or NULL on failure.
  */
-char **tokenize_input(char *input)
+char **tokenize_the_input(char *input)
 {
 	char **args = NULL;
 	char *separator = " \n\t";
@@ -31,5 +31,5 @@ char **tokenize_input(char *input)
 
 	args[index] = NULL;
 	free(token);
-	return args;
+	return (args);
 }

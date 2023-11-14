@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * validate_command - Validate and handle the user command
@@ -15,20 +15,20 @@
  *
  * Return: 1 on success (command is valid), 0 on failure
  */
-int validate_command(char **args, char *input, int exit_num)
+int validate_the_command(char **args, char *input, int exit_num)
 {
-	if (handle_builtins(args, input, exit_num))
+	if (handle_the_builtins(args, input, exit_num))
 	{
-		return 1;
+		return (1);
 	}
 
-	if (!does_command_exist_in_path(args))
+	if (!does_command_exist(args))
 	{
 		fprintf(stderr, "Command not found: %s\n", args[0]);
-		free_arguments_memory(args);
-		return 0;
+		free_arguments(args);
+		return (0);
 	}
 
-	return 1;
+	return (1);
 }
 

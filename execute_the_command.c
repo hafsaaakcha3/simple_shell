@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * exec_cmd - Execute a command with arguments
@@ -15,17 +15,17 @@
  *
  * Return: EXIT_SUCCESS on successful execution, EXIT_FAILURE on failure.
  */
-int exec_cmd(char **args, char *input_str)
+int execute_the_command(char **args, char *input)
 {
 	char *path, *dir;
 	char path_search[4096];
-	char cmd_path[4096];
+	char command_path[4096];
 
 	if (args[0][0] == '/' || args[0][0] == '.')
 	{
 		execve(args[0], args, NULL);
-		perror(input_str);
-		return EXIT_FAILURE;
+		perror(input);
+		return (EXIT_FAILURE);
 	}
 	else
 	{
@@ -39,16 +39,16 @@ int exec_cmd(char **args, char *input_str)
 		dir = strtok(path_search, ":");
 		while (dir)
 		{
-			snprintf(cmd_path, sizeof(cmd_path), "%s/%s", dir, args[0]);
-			if (access(cmd_path, X_OK) == 0)
+			snprintf(command_path, sizeof(command_path), "%s/%s", dir, args[0]);
+			if (access(command_path, X_OK) == 0)
 			{
-				execve(cmd_path, args, NULL);
-				perror(input_str);
-				return EXIT_FAILURE;
+				execve(command_path, args, NULL);
+				perror(input);
+				return (EXIT_FAILURE);
 			}
 			dir = strtok(NULL, ":");
 		}
 	}
-	return EXIT_SUCCESS;
+	return (EXIT_SUCCESS);
 }
 

@@ -1,5 +1,7 @@
+#include "shell.h"
+ 
 
-#include "my_shell.h"
+
 
 /**
  * main - The main function for a simple shell program
@@ -23,7 +25,7 @@ int main(void)
 		{
 			write(STDOUT_FILENO, "$ ", 2);
 		}
-		if (read_user_input(&input, &buf_size) == -1)
+		if (read_the_input(&input, &buf_size) == -1)
 		{
 			free(input);
 			break;
@@ -33,23 +35,23 @@ int main(void)
 			free(input);
 			continue;
 		}
-		if (is_only_spaces_tabs(input))
+		if (check_spaces_tabs(input))
 		{
 			free(input);
 			continue;
 		}
-		args = tokenize_input(input);
-		if (!validate_command(args, input, exit_num))
+		args = tokenize_the_input(input);
+		if (!validate_the_command(args, input, exit_num))
 		{
 			free(input);
 			continue;
 		}
-		exit_num = execute_forked_command(args, input);
+		exit_num = execute_the_forked_command(args, input);
 		if (args != NULL)
 		{
-			free_arguments_memory(args);
+			free_arguments(args);
 		}
 		free(input);
 	}
-	return 0;
+	return (0);
 }

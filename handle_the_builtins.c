@@ -1,4 +1,4 @@
-#include "my_shell.h"
+#include "shell.h"
 
 /**
  * handle_builtins - Handle built-in shell commands
@@ -14,25 +14,26 @@
  *
  * Return: 1 if the command is a built-in, 0 otherwise.
  */
-int handle_builtins(char **args, char *input_str, int exit_status)
+int handle_the_builtins(char **args, char *input, int exit_num)
 {
-	int status = EXIT_SUCCESS;
+	int exit_status = EXIT_SUCCESS;
 
 	if (strcmp(args[0], "exit") == 0)
 	{
 		if (args[1])
-			status = atoi(args[1]);
-		else if (exit_status != -1)
-			status = exit_status;
-		free_args(args);
-		free(input_str);
-		exit(status);
+			exit_status = atoi(args[1]);
+		else if (exit_num != -1)
+			exit_status = exit_num;
+		free_arguments(args);
+		free(input);
+		exit(exit_status);
 	}
 	else if ((strcmp(args[0], "env") == 0) || (strcmp(args[0], "printenv") == 0))
 	{
-		print_environment();
-		free_args(args);
-		return 1;
+		printenv();
+		free_arguments(args);
+		return (1);
 	}
 
-	return 0
+	return (0);
+}
