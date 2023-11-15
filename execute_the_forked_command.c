@@ -1,18 +1,12 @@
 #include "shell.h"
 
 /**
- * exec_forked_cmd - Execute a command in a forked process
- * @args: An array of command arguments
- * @input_str: The user input string
+ * execute_the_forked_command - Exec a command with arguments in a new process
  *
- * Description:
- * This function forks a new process to execute the given command. In the child
- * process, it calls exec_cmd to execute the command. If an error
- * occurs, it prints an error message and exits. In the parent process, it
- * waits for the child process to complete and returns the exit status of the
- * child process.
+ * @args: An array of strings containing the command and its arguments
+ * @input: The input string
  *
- * Return: The exit status of the child process, or -1 on failure.
+ * Return: The exit status of the child process
  */
 int execute_the_forked_command(char **args, char *input)
 {

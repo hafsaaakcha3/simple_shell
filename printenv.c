@@ -1,7 +1,9 @@
 #include "shell.h"
 
 /**
- * print_environment - Print environment variables
+ * printenv - Prints all environment variables to the standard output stream
+ *
+ * Return: None
  */
 void printenv(void)
 {

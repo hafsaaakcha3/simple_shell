@@ -1,15 +1,9 @@
 #include "shell.h"
 
 /**
- * does_cmd_exist - Check if a command exists in the PATH
- * @args: An array of command arguments
- *
- * Description:
- * This function checks if a command specified in the 'args' array exists in the
- * directories specified in the PATH environment variable. It returns 1 if the
- * command is found and is executable, or 0 if it is not.
- *
- * Return: 1 if the command exists and is executable, 0 otherwise.
+ * does_command_exist - Checks if a command exists in the PATH environment var
+ * @args: An array of strings containing the command and its arguments
+ * Return: 1 if the command exists, 0 otherwise
  */
 int does_command_exist(char **args)
 {

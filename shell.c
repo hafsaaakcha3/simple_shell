@@ -1,7 +1,4 @@
 #include "shell.h"
- 
-
-
 
 /**
  * main - The main function for a simple shell program

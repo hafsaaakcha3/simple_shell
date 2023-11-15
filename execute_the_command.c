@@ -1,19 +1,10 @@
 #include "shell.h"
 
 /**
- * exec_cmd - Execute a command with arguments
- * @args: An array of command arguments
- * @input_str: The user input string
- *
- * Description:
- * This function attempts to execute a command specified in the 'args' array.
- * If the command's path is not provided and the command is not in the current
- * directory, it searches for the command in the directories specified in the
- * PATH environment variable. If it finds a valid executable, it executes it.
- * If the command execution fails, it prints an error message and returns
- * EXIT_FAILURE. If the command is executed successfully, it does not return.
- *
- * Return: EXIT_SUCCESS on successful execution, EXIT_FAILURE on failure.
+ * execute_the_command - Executes a command with arguments
+ * @args: An array of strings containing the command and its arguments
+ * @input: The input string
+ * Return: EXIT_SUCCESS if the command is executed , EXIT_FAILURE otherwise
  */
 int execute_the_command(char **args, char *input)
 {
@@ -51,4 +42,3 @@ int execute_the_command(char **args, char *input)
 	}
 	return (EXIT_SUCCESS);
 }
-

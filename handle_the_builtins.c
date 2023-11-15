@@ -1,18 +1,13 @@
 #include "shell.h"
 
 /**
- * handle_builtins - Handle built-in shell commands
- * @args: An array of command arguments
- * @input_str: The user input string
- * @exit_status: The exit status to set on exit
+ * handle_the_builtins - Handles built-in shell commands
  *
- * Description:
- * This function handles built-in shell commands like "exit" and "env". If the
- * command is "exit," it checks for an optional exit status, sets it, frees
- * memory, and exits the program. If the command is "env," it prints the
- * environment variables and returns. For all other commands, it returns 0.
+ * @args: An array of strings containing the command and its arguments
+ * @input: The input string
+ * @exit_num: The exit status to use if no exit status is specified
  *
- * Return: 1 if the command is a built-in, 0 otherwise.
+ * Return: 1 if the command is a built-in, 0 otherwise
  */
 int handle_the_builtins(char **args, char *input, int exit_num)
 {

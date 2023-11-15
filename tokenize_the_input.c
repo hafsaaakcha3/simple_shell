@@ -1,15 +1,11 @@
 #include "shell.h"
 
 /**
- * tokenize_input - Tokenize an input string into an array of arguments
- * @input: The user input string to tokenize
+ * tokenize_the_input - Tokenizes a string into an array of strings
  *
- * Description:
- * This function tokenizes the input string into an array of arguments using
- * space, newline, and tab as delimiters. It dynamically allocates memory for
- * the arguments and returns the resulting array.
+ * @input: The string to tokenize
  *
- * Return: An array of pointers to the tokenized arguments, or NULL on failure.
+ * Return: An array of strings containing the tokens
  */
 char **tokenize_the_input(char *input)
 {

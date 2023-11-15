@@ -1,17 +1,12 @@
 #include "shell.h"
 
 /**
- * read_user_input - Read user input from stdin
- * @input: A pointer to the input string
- * @buf_size: A pointer to the buffer size
+ * read_the_input - Reads a line of text from the standard input stream
  *
- * Description:
- * This function reads user input from the standard input (stdin) using the
- * getline function and stores it in the input buffer. It dynamically resizes
- * the buffer as needed. If an error occurs during input reading, it will
- * display an error message and exit the program.
+ * @input: A pointer to a string to store the input
+ * @buf_size: A pointer to the size of the input buffer
  *
- * Return: The number of characters read, or -1 on error.
+ * Return: The number of characters read, including the newline character
  */
 ssize_t read_the_input(char **input, size_t *buf_size)
 {
@@ -32,4 +27,3 @@ ssize_t read_the_input(char **input, size_t *buf_size)
 
 	return (rd);
 }
-

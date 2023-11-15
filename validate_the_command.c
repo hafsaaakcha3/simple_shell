@@ -1,19 +1,13 @@
 #include "shell.h"
 
 /**
- * validate_command - Validate and handle the user command
- * @args: An array of command arguments
- * @input: The user input string
- * @exit_num: The exit status to set on exit
+ * validate_the_command - Validates a command and its arguments
  *
- * Description:
- * This function validates and handles the user command. It first checks if the
- * command is a built-in command and handles it if it is. If the command is not
- * a built-in, it checks whether the command exists in the system's
- * command does not exist, it displays an error message and frees
- * array.
+ * @args: An array of strings containing the command and its arguments
+ * @input: The input string
+ * @exit_num: The exit status to use if no exit status is specified
  *
- * Return: 1 on success (command is valid), 0 on failure
+ * Return: 1 if the command is valid, 0 otherwise
  */
 int validate_the_command(char **args, char *input, int exit_num)
 {
@@ -31,4 +25,3 @@ int validate_the_command(char **args, char *input, int exit_num)
 
 	return (1);
 }
-
